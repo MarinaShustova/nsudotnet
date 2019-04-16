@@ -1,0 +1,37 @@
+﻿@page
+@model NewWorkersDB.Pages.Leaderboard.IndexModel 
+@{
+    ViewData["Title"] = "Leaderboard";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                    @Html.DisplayNameFor(model => model.Worker[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projects[0].Premium)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Worker) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @{
+                            var sum = 0.0;
+                            try {
+                                sum += item.Projects.Sum(s => s.Premium);
+                            }
+                            catch { }
+                     }
+                     @Html.DisplayFor(modelItem => sum)
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
