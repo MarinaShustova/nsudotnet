@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewWorkersDB.Models;
 
 namespace NewWorkersDB.Migrations
 {
     [DbContext(typeof(Lab4Context))]
-    partial class Lab4ContextModelSnapshot : ModelSnapshot
+    [Migration("20190423030014_addHasChildrenToWorker")]
+    partial class addHasChildrenToWorker
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
